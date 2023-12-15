@@ -1,0 +1,21 @@
+<html>
+<body>
+<!-- ERROR -> org.mvel2.ScriptRuntimeException: cannot assign variables; no variable resolver factory available. -->
+<!-- PLEASE UNCOMMENT BELOW -->
+@code{var_assign_test = "var value"}
+
+<!-- ERROR WHEN INCLUDE TEMPLATES -->
+<!-- PLEASE UNCOMMENT BELOW -->
+@include{'/commmon/header.templ'}
+
+<h2>Here is some info about the HTTP request<h2>
+
+<h3>Request path:@{context.request().path()}</h3><br>
+<h3>Request headers:</h3><br>
+
+@foreach{entry: context.request().headers().entries()}
+@{entry.key}: @{entry.value}<br>
+@end{}
+
+</body>
+</html>
